@@ -367,14 +367,14 @@ function consultarPorTelefone() {
     // Limpar telefone para busca (remover caracteres especiais)
     const telefoneLimpo = telefone.replace(/\D/g, '');
     
-    // Buscar nos dados
+    // Buscar nos dados (busca exata simples como CPF)
     const resultado = dadosConsulta.find(dado => {
         const telefoneDado = dado.TELEFONE.replace(/\D/g, '');
-        return telefoneDado === telefoneLimpo || telefoneDado.includes(telefoneLimpo);
+        return telefoneDado === telefoneLimpo;
     });
     
     console.log('Telefone buscado:', telefoneLimpo);
-    console.log('Dados disponíveis:', dadosConsulta.map(d => ({ nome: d.NOME, telefone: d.TELEFONE })));
+    console.log('Total de registros:', dadosConsulta.length);
     
     exibirResultado(resultado, 'telefone', telefone);
 }
@@ -398,7 +398,7 @@ function consultarPorCPF() {
     });
     
     console.log('CPF buscado:', cpfLimpo);
-    console.log('Dados disponíveis:', dadosConsulta.map(d => ({ nome: d.NOME, cpf: d.CPF })));
+    console.log('Total de registros:', dadosConsulta.length);
     
     exibirResultado(resultado, 'CPF', cpf);
 }
