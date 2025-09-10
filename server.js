@@ -26,7 +26,7 @@ function carregarDados() {
     const inicio = Date.now();
     
     try {
-        const dados = fs.readFileSync('servidor.txt', 'utf8');
+        const dados = fs.readFileSync('servidor-invertido.txt', 'utf8');
         const linhas = dados.trim().split('\n');
         
         // Detectar formato automaticamente
@@ -34,7 +34,8 @@ function carregarDados() {
         
         // Verificar se tem cabeçalho
         const temCabecalho = linhas[0].includes('CPF,AG,NOME,IDADE,TELEFONE,UF') || 
-                            linhas[0].includes('CPF,AG,NOME,IDADE,UF,TELEFONE');
+                            linhas[0].includes('CPF,AG,NOME,IDADE,UF,TELEFONE') ||
+                            linhas[0].includes('TELEFONE,CPF,AG,NOME,IDADE,UF');
         
         if (temCabecalho) {
             // Formato com cabeçalho: CPF,AG,NOME,IDADE,TELEFONE,UF
@@ -63,6 +64,19 @@ function carregarDados() {
                     'UF': valores[5] ? valores[5].trim() : ''
                 };
             });
+        }
+        
+        // Ajustar mapeamento para formato invertido (TELEFONE,CPF,AG,NOME,IDADE,UF)
+        if (cabecalho[0] === 'TELEFONE') {
+            console.log('📋 Formato detectado: INVERTIDO (TELEFONE,CPF,AG,NOME,IDADE,UF)');
+            registros = registros.map(registro => ({
+                'CPF': registro.CPF,
+                'AG': registro.AG,
+                'NOME': registro.NOME,
+                'IDADE': registro.IDADE,
+                'TELEFONE': registro.TELEFONE,
+                'UF': registro.UF
+            }));
         }
         
         // Atualizar cache
