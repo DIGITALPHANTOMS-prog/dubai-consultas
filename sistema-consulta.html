@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏆 DUBAI CONSULTAS - Sistema Premium</title>
+    <link rel="stylesheet" href="sistema-consulta.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>">
+</head>
+<body>
+    <!-- Tela de Login -->
+    <div id="loginScreen" class="screen active">
+        <div class="login-container">
+            <h1>🏆 DUBAI CONSULTAS 🏆</h1>
+            <h3 style="text-align: center; color: #FFD700; margin-bottom: 20px; font-family: 'Orbitron', monospace; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);">💰 SISTEMA PREMIUM 💰</h3>
+            <div class="login-form">
+                <h2>LOGIN</h2>
+                <div class="input-group">
+                    <label>USUARIO</label>
+                    <input type="text" id="username" placeholder="Digite o usuário">
+                </div>
+                <div class="input-group">
+                    <label>SENHA</label>
+                    <input type="password" id="password" placeholder="Digite a senha">
+                </div>
+                <button id="loginBtn" onclick="fazerLogin()">LOGIN</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Principal -->
+    <div id="menuPrincipal" class="screen">
+        <div class="header">
+            <h1>🏆 DUBAI CONSULTAS 🏆</h1>
+            <button id="logoutBtn" onclick="fazerLogout()">SAIR</button>
+        </div>
+        
+        <div class="menu-container">
+            <div class="menu-section">
+                <h2>🎯 MENU PRINCIPAL</h2>
+                <div class="menu-buttons">
+                    <button class="menu-btn" onclick="mostrarConsultarDados()">
+                        🔍 CONSULTAR DADOS
+                    </button>
+                    <button class="menu-btn" onclick="mostrarPainelConsulta()">
+                        📊 PAINEL DE CONSULTA
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tela de Consultar Dados -->
+    <div id="consultarDados" class="screen">
+        <div class="header">
+            <h1>🏆 DUBAI CONSULTAS 🏆</h1>
+            <button onclick="voltarMenu()">← VOLTAR</button>
+        </div>
+        
+        <div class="consulta-container">
+            <!-- Consulta por CPF -->
+            <div class="consulta-section">
+                <h2>💎 CONSULTA PREMIUM POR CPF 💎</h2>
+                <div class="input-group">
+                    <label>CPF</label>
+                    <input type="text" id="cpfConsulta" placeholder="Digite o CPF">
+                </div>
+                <button onclick="consultarCPF()">PROCURAR</button>
+            </div>
+
+            <!-- Consulta por Telefone -->
+            <div class="consulta-section">
+                <h2>💎 CONSULTA PREMIUM POR TELEFONE 💎</h2>
+                <div class="input-group">
+                    <label>TELEFONE</label>
+                    <input type="text" id="telefoneConsulta" placeholder="Digite o telefone">
+                </div>
+                <button onclick="consultarTelefone()">PROCURAR</button>
+            </div>
+
+            <!-- Consulta por Nome -->
+            <div class="consulta-section">
+                <h2>💎 CONSULTA PREMIUM POR NOME 💎</h2>
+                <div class="input-group">
+                    <label>NOME</label>
+                    <input type="text" id="nomeConsulta" placeholder="Digite o nome completo">
+                </div>
+                <button onclick="consultarNome()">PROCURAR</button>
+            </div>
+
+            <!-- Consulta por Endereço -->
+            <div class="consulta-section">
+                <h2>💎 CONSULTA PREMIUM POR ENDEREÇO 💎</h2>
+                <div class="input-group">
+                    <label>CPF</label>
+                    <input type="text" id="cpfEndereco" placeholder="Digite o CPF para buscar endereços">
+                </div>
+                <button onclick="consultarEndereco()">PROCURAR</button>
+            </div>
+
+            <!-- Resultados -->
+            <div class="resultado-section">
+                <h2>🏆 RESULTADO PREMIUM 🏆</h2>
+                <div id="resultadoConsulta" class="resultado-content">
+                    <!-- Resultados aparecerão aqui -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Painel de Consulta (Sistema Atual) -->
+    <div id="consultaScreen" class="screen">
+        <div class="header">
+            <h1>🏆 DUBAI CONSULTAS 🏆</h1>
+            <button onclick="voltarMenu()">← VOLTAR</button>
+        </div>
+        
+        <div class="consulta-container">
+            <!-- Consulta por Telefone -->
+            <div class="consulta-section">
+                <h2>💎 CONSULTA PREMIUM POR TELEFONE 💎</h2>
+                <div class="input-group">
+                    <label>TELEFONE</label>
+                    <input type="text" id="telefone" placeholder="Digite o telefone">
+                </div>
+                <button onclick="consultarPorTelefone()">PROCURAR</button>
+            </div>
+
+            <!-- Consulta por CPF -->
+            <div class="consulta-section">
+                <h2>💎 CONSULTA PREMIUM POR CPF 💎</h2>
+                <div class="input-group">
+                    <label>CPF</label>
+                    <input type="text" id="cpf" placeholder="Digite o CPF">
+                </div>
+                <button onclick="consultarPorCPF()">PROCURAR</button>
+            </div>
+
+            <!-- Resultados -->
+            <div class="resultado-section">
+                <h2>🏆 RESULTADO PREMIUM 🏆</h2>
+                <div id="resultado" class="resultado-content">
+                    <!-- Resultados aparecerão aqui -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="sistema-consulta.js"></script>
+</body>
+</html>

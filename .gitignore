@@ -1,0 +1,46 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Arquivos de desenvolvimento local
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Arquivos do sistema operacional
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos de backup
+*.bak
+*.backup
+*~
+
+# Scripts de inicialização local (não subir para produção)
+iniciar*.bat
+resolver-ngrok.bat
+
+# Arquivos de resultados locais
+resultados-live.txt
+
+# Arquivos de cópia (manter apenas o principal)
+servidor - Copia.txt
+servidor-convertido.txt
